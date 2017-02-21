@@ -8,13 +8,11 @@
 
 <body>
   <div ng-app="AppRipassoDelMartedi" >
-    <div ng-controller="anagrafica">
-      <input type="text" name="nome" ng-model="nome"  placeholder="inserisci il nome"/>
-<p>cippa</p>
-      <input type="text" name="nomeInserito" ng-if="nome" ng-value="nome">
-      <p>lippa<p>
-
-
+    <div ng-controller="anagrafica as anagr">
+      <input type="text" name="nome" ng-model="anagr.nome"  placeholder="inserisci il nome">
+      <div ng-controller="saluti as sal">
+        <input type="text" name="nomeInserito"  ng-value="sal.saluta(anagr)">
+      </div>
   </div>
   <script src="control.js"></script>
 </body>
