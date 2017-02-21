@@ -11,9 +11,25 @@
     <div ng-controller="anagrafica as anagr">
       <input type="text" name="nome" ng-model="anagr.nome"  placeholder="inserisci il nome">
       <div ng-controller="saluti as sal">
-        <input type="text" name="nomeInserito"  ng-value="sal.saluta(anagr)">
+        <p type="text" name="nomeInserito"  ng-bind="sal.saluta(anagr)">
+
+        </p>
       </div>
   </div>
+  <input type="text" name="eta" ng-model="eta" >
+  <div ng-include="eta>=18? 'MaggMin/Mag.html': 'MaggMin/Min.html' ">
+  </div>
+<!--direttiva include con opzione file esterno o codice interno alla pagina,
+    non ho provato la possibilità di usare la direttiva anche come tag o come classe:
+                            <ng-include src:""></ng-include>
+                            <div class="ng-include:'/pag.html'">  </div>
+    non ho provato nemmmeno la possibilita di includere il risultato di una funzione che restituisce direttamente il codice da interpretare
+-->
+  <div ng-include="'pagInterna.html'">
+  </div>
+  <script type="text/ng-template" id="pagInterna.html">
+    <h1>questa è una parte di codice inclusa ma incorporata internamente al file includente</h1>
+  </script>
   <script src="control.js"></script>
 </body>
 </html>
