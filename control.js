@@ -1,4 +1,4 @@
-angular.module("appRipasso",[])
-    .controller("controllonomi",function($scope){
-        $scope.nome="a tutti quanti";
-});
+angular.module("AppRipassoDelMartedi",[])
+  .controller("anagrafica",function($scope){
+      $scope.nome="mirko";
+  });

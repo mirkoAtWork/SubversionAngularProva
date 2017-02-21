@@ -3,17 +3,19 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
 </script>
-<script src="control.js"></script>
+
 </head>
 
 <body>
-    <div ng-app='appRipasso'>
-        <div ng-controller="controllonomi">
-     <p>Dimmi il tuo nome:<input type="text" ng-model="nome"></p>
-         
-     <h1>Ciao {{nome || 'a tutti'}}</h1>
-       </div>
-    </div>
-</body>
+  <div ng-app="AppRipassoDelMartedi" >
+    <div ng-controller="anagrafica">
+      <input type="text" name="nome" ng-model="nome"  placeholder="inserisci il nome"/>
+<p>cippa</p>
+      <input type="text" name="nomeInserito" ng-if="nome" ng-value="nome">
+      <p>lippa<p>
 
+
+  </div>
+  <script src="control.js"></script>
+</body>
 </html>
