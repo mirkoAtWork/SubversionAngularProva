@@ -9,11 +9,11 @@
 <body>
   <div ng-app="AppRipassoDelMartedi" >
     <div ng-controller="anagrafica as anagr">
+      <p ng-bind="salta"></p>
       <input type="text" name="nome" ng-model="anagr.nome"  placeholder="inserisci il nome">
       <div ng-controller="saluti as sal">
-        <p type="text" name="nomeInserito"  ng-bind="sal.saluta(anagr)">
+        <p ng-bind="sal.saluta(anagr)"> </p>
 
-        </p>
       </div>
   </div>
   <input type="text" name="eta" ng-model="eta" >
