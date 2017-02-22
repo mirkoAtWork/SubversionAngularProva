@@ -1,35 +1,63 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Prova ng-repeat</title>
+    <script type="text/javascript" src=https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js>
+    </script>
+    <style media="screen">
+    table {
+      border-collapse: collapse;
+    }
+      table, tr,td, th{
+        border:1px solid black ;
+      }
+      td{
+        padding: 2px;
+      }
+    </style>
+  </head>
+  <body>
 
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
-</script>
+    <div  ng-app="mercolediApp">
+      <div ng-controller="tabella as tab">
+        <ul>
+          <li ng-repeat="campo in tab.elenco" >
+            $index {{$index}} : {{campo}}
+          </li>
+        </ul>
+        <hr />
+        <ul>
+          <li ng-repeat="numero in tab.elencodup track by $index" >
+            $index {{$index}} : {{numero}}
+          </li>
+        </ul>
+        <hr/>
+        <table>
 
-</head>
+          <tr>
+          <th>indice</th><th>nome</th><th>indirizzo</th><th>telefono</th>
+          </tr>
+          <tr ng-repeat="persona in tab.rubrica">
+            <td ng-bind="$index"></td><td ng-bind="persona.nome"></td> <td>{{persona.indirizzo}}</td><td>{{persona.tel}}</td>
+          </tr>
+        </table>
 
-<body>
-  <div ng-app="AppRipassoDelMartedi" >
-    <div ng-controller="anagrafica as anagr">
-      <p ng-bind="salta"></p>
-      <input type="text" name="nome" ng-model="anagr.nome"  placeholder="inserisci il nome">
-      <div ng-controller="saluti as sal">
-        <p ng-bind="sal.saluta(anagr)"> </p>
+        <hr>
+        <table >
+
+          <tr>
+          <th>indice</th><th>nome</th><th>indirizzo</th><th>telefono</th>
+          </tr>
+          <tr ng-repeat="persona in tab.rubrica">
+            <td>{{$index}}</td><td ng-repeat="(key,value) in persona">{{key}} - {{value}}</td>
+          </tr>
+        </table>
+
 
       </div>
-  </div>
-  <input type="text" name="eta" ng-model="eta" >
-  <div ng-include="eta>=18? 'MaggMin/Mag.html': 'MaggMin/Min.html' ">
-  </div>
-<!--direttiva include con opzione file esterno o codice interno alla pagina,
-    non ho provato la possibilità di usare la direttiva anche come tag o come classe:
-                            <ng-include src:""></ng-include>
-                            <div class="ng-include:'/pag.html'">  </div>
-    non ho provato nemmmeno la possibilita di includere il risultato di una funzione che restituisce direttamente il codice da interpretare
--->
-  <div ng-include="'pagInterna.html'">
-  </div>
-  <script type="text/ng-template" id="pagInterna.html">
-    <h1>questa è una parte di codice inclusa ma incorporata internamente al file includente</h1>
-  </script>
-  <script src="control.js"></script>
-</body>
+    </div>
+    <script type="text/javascript" src="control.js">
+    </script>
+  </body>
 </html>
