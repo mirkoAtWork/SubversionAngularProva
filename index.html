@@ -8,55 +8,20 @@
 
   </head>
   <body>
-    <div ng-app="select">
-      <div ng-controller="elenchi as el">
-
-        <!-- Select from an array  -->
-        <label for="">Citta prese da array di stringhe</label>
-        <select ng-model="el.cittaselezionata" >
-          <option value="">--Seleziona una città--</option>
-          <option ng-repeat="citta in el.liguria" value="{{citta}}" ng-bind="citta">
-
-          </option>
-        </select>
-        <p ng-if="el.cittaselezionata">Ha selezionato <span ng-bind="el.cittaselezionata"></span></p>
-
-
-      <hr/>
-
-      <!-- select from an OBJECT array, for istance city that return its acronyms -->
-      <label for="">Città prese da array di oggetti sigle-città</label>
-      <select ng-model="el.sigla">
-        <option value="">Seleziona La città</option>
-        <option ng-repeat="pr in el.province" value="{{pr.codice}}" ng-bind="pr.nome">
-        </option>
-      </select>
-      <p ng-if="el.sigla">Hai selezionato <span ng-bind="el.sigla"></span></p>
-
-      <hr>
-      <!-- select from object's array and return the entire object -->
-      <label for="">Città presente in array di oggetti sigle città</label>
-      <select ng-model="el.objCity" ng-options="pr.nome for pr in el.province">
-      </select>
-        <!-- e se volessi ritornare solo i codici come prima ecco qui -->
-      <!-- <select ng-model="el.objCIty" ng-option="pr.codice as pr.nome for pr in el.province">
-        </select> -->
-        <p ng-if="el.objCity" >Hai selezionato la citta <span ng-bind="el.objCity.nome"></span><br />
-          la cui sigla è <span ng-bind="el.objCity.codice"></span></p>
-
-        <hr>
-        <!-- see above plus group by regione -->
-        <label>Alcune citta di alcune regioni</label>
-        <select ng-model="el.objRegionCity" ng-options="rg.nome group by rg.regione for rg in el.regioni">
-
-        </select>
-
-        <p ng-if="el.objRegionCity.codice" >Hai selezionato la città <span ng-bind="el.objRegionCity.nome"></span><br>
-                                            della regione <span ng-bind="el.objRegionCity.regione"></span><br>
-                                            la cui sigla è <span ng-bind="el.objRegionCity.codice"></span></p>
-
-
+    <div ng-app="calcolatrice">
+      <div ng-controller="memoria as mem">
+        <input type="number" name="" value="" ng-model="mem.addendo1" >
+      <input type="number" name="" value="" ng-model="mem.addendo2">
+      <input type="number" name="" value="" ng-model="mem.risultato">
+      <button type="button" name="button" ng-click="mem.risultato=mem.addendo1+mem.addendo2">Somma</button>
     </div>
+
+    <hr>
+
+    <input type="number" name="" value="" ng-model="mem.add1" ng-change="mem.ris=mem.add1+mem.add2">
+  <input type="number" name="" value="" ng-model="mem.add2" ng-change="mem.ris=mem.add1+mem.add2">
+  <input type="number" name="" value="" ng-model="mem.ris" readonly>
+
   </div>
 
     <script type="text/javascript" src="control.js">
