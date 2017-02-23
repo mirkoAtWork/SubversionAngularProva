@@ -1,11 +1,32 @@
-angular.module("mercolediApp",[])
-.controller("tabella",function(){
-  this.elenco=["primo","secondo","secondo","terzo"];
-  this.elencodup=[53,27,27,27,32,53,1];
-  this.rubrica=[
-              {nome:"mirko",indirizzo:"via le dita dal naso",tel:"60610106"},
-              {nome:"mirko",indirizzo:"via le dita dal naso",tel:"60610106"},
-              {nome:"Davide",indirizzo:"casa sua",tel:"123456"},
-              {nome:"un nome",indirizzo:"un indirizzo",tel:"un numero di telefono"}
-            ];
+angular.module("select",[])
+.controller("elenchi",function($scope){
+  this.liguria=["Imperia","Savona","Genova","La Spezia"];
+  this.province=[
+            {codice:"SP",nome:"La Spezia"},
+            {codice:"GE",nome:"Genova"},
+            {codice:"IM",nome:"Imperia"},
+            {codice:"SV",nome:"Savona"}
+          ];
+
+// per avere un elemento selezionato ho messo la variabile del model
+// gia settata a
+  this.objCity=this.province[0];
+
+//altro modo per settare la variabile di default
+
+  this.regioni = [
+        {codice:"",   nome:"Seleziona la citta",    regione:""},
+        {codice: "RM", nome: "Roma", regione: "Lazio"},
+        {codice: "LT", nome: "Latina", regione: "Lazio"},
+        {codice: "MI", nome: "Milano", regione: "Lombardia"},
+        {codice: "NA", nome: "Napoli", regione: "Campania"},
+        {codice: "CO", nome: "Como", regione: "Lombardia"},
+        {codice: "PA", nome:"Palermo", regione: "Sicilia"},
+        {codice: "CA", nome: "Caserta", regione: "Campania"},
+        {codice: "AV", nome: "Avellino", regione: "Campania"},
+        {codice: "TP", nome:"Trapani", regione: "Sicilia"},
+        {codice: "AG", nome:"Agrigento", regione: "Sicilia"}
+        ];
+    this.objRegionCity=this.regioni[0];
+
 });
