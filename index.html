@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <title>Prova ng-repeat</title>
     <script type="text/javascript" src=https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js>
     </script>
 
   </head>
   <body>
-    <div ng-app="calcolatrice">
-      <div ng-controller="memoria as mem">
-        <input type="number" name="" value="" ng-model="mem.addendo1" >
-      <input type="number" name="" value="" ng-model="mem.addendo2">
-      <input type="number" name="" value="" ng-model="mem.risultato">
-      <button type="button" name="button" ng-click="mem.risultato=mem.addendo1+mem.addendo2">Somma</button>
+    <div ng-app="direttiva">
+      <div ng-controller="scopedirettiva">
+        <my-Greeting l1="ita"></my-Greeting>
+        <hr>
+        <my-Greeting l1="eng"></my-Greeting>
+      </div>
     </div>
-
-    <hr>
-
-    <input type="number" name="" value="" ng-model="mem.add1" ng-change="mem.ris=mem.add1+mem.add2">
-  <input type="number" name="" value="" ng-model="mem.add2" ng-change="mem.ris=mem.add1+mem.add2">
-  <input type="number" name="" value="" ng-model="mem.ris" readonly>
-
-  </div>
 
     <script type="text/javascript" src="control.js">
     </script>

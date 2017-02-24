@@ -1,4 +1,13 @@
-angular.module("calcolatrice",[])
-.controller("memoria",function(){
-var add1=0,add2=0,ris=0
+angular.module("direttiva",[])
+.controller("scopedirettiva",['$scope',function($scope){
+$scope.ita={saluto:"Ciao utente",pres:"Mi chiamo"};
+$scope.eng={saluto:"Hello",pres:"My name is"};
+}]).directive("myGreeting",function(){
+return{
+  restrict:'E',
+  scope:{
+    l1:'=',
+},
+templateUrl:'template.html'
+};
 });
