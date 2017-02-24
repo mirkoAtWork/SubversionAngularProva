@@ -7,14 +7,32 @@
     </script>
 
   </head>
-  <body>
-    <div ng-app="direttiva">
-      <div ng-controller="scopedirettiva">
-        <my-Greeting l1="ita"></my-Greeting>
-        <hr>
-        <my-Greeting l1="eng"></my-Greeting>
-      </div>
-    </div>
+  <body ng-app="app">
+    <!-- ref.:http://www.dotnettricks.com/learn/angularjs/understanding-emit-broadcast-and-on-in-angularjs -->
+    <!-- $on is an event Handler -->
+    <!-- $emit -->
+   <div ng-controller="firstCtrl" style="border:2px solid #E75D5C; padding:5px;">
+   <h1>Parent Controller</h1>
+   <p>Emit Message : <span ng-bind="message"></span> </p>
+   <br />
+   <div ng-controller="secondCtrl" style="border:2px solid #428bca;padding:5px;">
+   <h1>Child Controller</h1>
+   <input ng-model="msg">
+   <button ng-click="handleClick(msg);">Emit</button>
+   </div>
+   </div>
+<hr>
+  <!-- broacast -->
+  <div ng-controller="thirdCtrl" style="border:2px solid #E75D5C; padding:5px;">
+  <h1>Parent Controller</h1>
+  <input ng-model="msg">
+  <button ng-click="handleClick(msg);">Broadcast</button>
+  <br /><br />
+  <div ng-controller="fourthCtrl" style="border:2px solid #428bca;padding:5px;">
+  <h1>Child Controller</h1>
+  <p>Broadcast Message : <span ng-bind="message"></span> </p>
+  </div>
+  </div>
 
     <script type="text/javascript" src="control.js">
     </script>
